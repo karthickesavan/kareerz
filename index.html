@@ -103,8 +103,30 @@
     gap: 28px;
     font-size: 14px;
     font-weight: 600;
-  }
-  #kareerz-root .navlinks a { opacity: 0.75; transition: opacity 0.15s; }
+  }#kareerz-root .navlinks a{
+    position:relative;
+    opacity:.75;
+    transition:opacity .3s ease;
+}
+
+#kareerz-root .navlinks a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:var(--gold);
+    transition:width .3s ease;
+}
+
+#kareerz-root .navlinks a:hover{
+    opacity:1;
+}
+
+#kareerz-root .navlinks a:hover::after{
+    width:100%;
+}
   #kareerz-root .navlinks a:hover { opacity: 1; }
   #kareerz-root .nav-cta {
     background: var(--indigo);
@@ -139,18 +161,87 @@
   }
 
   /* ---------- Hero ---------- */
-  #kareerz-root .hero {
-    padding-top: 64px;
-    padding-bottom: 64px;
-    position: relative;
-    overflow: hidden;
-  }
-  #kareerz-root .hero-grid {
+ #kareerz-root .hero{
+    padding-top:64px;
+    padding-bottom:64px;
+    position:relative;
+    overflow:hidden;
+#kareerz-root .hero::before,
+#kareerz-root .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    z-index:0;
+    opacity:.25;
+    animation:blobMove 12s ease-in-out infinite;
+}
+
+#kareerz-root .hero::before{
+    width:350px;
+    height:350px;
+    background:rgba(224,150,46,.35);
+    top:-120px;
+    right:-120px;
+}
+#kareerz-root .hero::after{
+    width:280px;
+    height:280px;
+    background:rgba(242,197,114,.25);
+    bottom:-80px;
+    left:-80px;
+    animation-delay:-6s;
+}
+
+@keyframes blobMove{
+
+0%{
+    transform:translate(0,0) scale(1);
+}
+
+50%{
+    transform:translate(25px,-20px) scale(1.12);
+}
+
+100%{
+    transform:translate(0,0) scale(1);
+}
+
+}
+    background:linear-gradient(
+        -45deg,
+        #F5EFE3,
+        #FFFCF6,
+        #F8F1E4,
+        #FFF9EF
+    );
+
+    background-size:400% 400%;
+    animation:heroGradient 15s ease infinite;
+}
+@keyframes heroGradient{
+
+0%{
+    background-position:0% 50%;
+}
+
+50%{
+    background-position:100% 50%;
+}
+
+100%{
+    background-position:0% 50%;
+}
+
+}#kareerz-root .hero-grid {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 56px;
     align-items: center;
-  }
+
+    position: relative;
+    z-index: 2;
+}
   #kareerz-root .hero h1 {
     font-size: clamp(38px, 5vw, 56px);
     line-height: 1.08;
@@ -187,15 +278,95 @@
     font-size: 14.5px;
     transition: transform 0.15s, background 0.15s;
   }
-  #kareerz-root .btn-primary { background: var(--gold); color: var(--indigo-deep); }
+  #kareerz-root .btn-primary{
+    position:relative;
+    overflow:hidden;
+    background:var(--gold);
+    color:var(--indigo-deep);
+    isolation:isolate;
+}
+#kareerz-root .btn-primary::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.7),
+        transparent
+    );
+    transform:skewX(-25deg);
+    animation:buttonShine 3s infinite;
+}
+/* ===========================
+   Typing Text
+=========================== */
+
+#typing-text{
+    color: var(--indigo);
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    border-right: 3px solid var(--gold);
+    padding-right: 4px;
+    white-space: nowrap;
+    animation: cursorBlink .8s infinite;
+}
+
+@keyframes cursorBlink{
+    50%{
+        border-color: transparent;
+    }
+}
+
+@keyframes buttonShine{
+
+0%{
+    left:-120%;
+}
+
+60%{
+    left:140%;
+}
+
+100%{
+    left:140%;
+}
+
+}
   #kareerz-root .btn-primary:hover { background: var(--gold-soft); transform: translateY(-1px); }
   #kareerz-root .btn-secondary { background: transparent; color: var(--indigo); border: 1.5px solid var(--indigo); }
   #kareerz-root .btn-secondary:hover { background: var(--indigo); color: var(--paper); }
+/* hero key illustration */
+#kareerz-root .hero-art{
+    position:relative;
+    animation:floatHero 5s ease-in-out infinite;
+    transform-origin:center;
+}
 
-  /* hero key illustration */
-  #kareerz-root .hero-art { position: relative; }
-  #kareerz-root .hero-art svg { width: 100%; height: auto; }
+#kareerz-root .hero-art svg{
+    width:100%;
+    height:auto;
+}
 
+@keyframes floatHero{
+
+0%{
+    transform:translateY(0px);
+}
+
+50%{
+    transform:translateY(-15px);
+}
+
+100%{
+    transform:translateY(0px);
+}
+
+}
   /* stat strip */
   #kareerz-root .stats {
     display: grid;
@@ -286,14 +457,22 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
   }
-  #kareerz-root .prog-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 26px 22px;
-    transition: border-color 0.15s, transform 0.15s;
-  }
-  #kareerz-root .prog-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  #kareerz-root .prog-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px 22px;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+  #kareerz-root .prog-card:hover{
+    border-color:var(--gold);
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
   #kareerz-root .prog-icon {
     width: 40px; height: 40px;
     border-radius: 6px;
@@ -392,6 +571,74 @@
     #kareerz-root * { transition: none !important; }
   }.mentor-photo{
     max-width:240px;
+}
+/* ===========================
+   SCROLL REVEAL ANIMATIONS
+=========================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 0.8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+    animation: fadeUp .8s ease forwards;
+}
+
+.prog-card:nth-child(1){animation-delay:.1s;}
+.prog-card:nth-child(2){animation-delay:.2s;}
+.prog-card:nth-child(3){animation-delay:.3s;}
+.prog-card:nth-child(4){animation-delay:.4s;}
+.prog-card:nth-child(5){animation-delay:.5s;}
+.prog-card:nth-child(6){animation-delay:.6s;}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Different animation styles */
+
+.reveal-left{
+    opacity:0;
+    transform:translateX(-60px);
+    transition:all .8s ease;
+}
+
+.reveal-left.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.reveal-right{
+    opacity:0;
+    transform:translateX(60px);
+    transition:all .8s ease;
+}
+
+.reveal-right.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.reveal-scale{
+    opacity:0;
+    transform:scale(.92);
+    transition:all .8s ease;
+}
+
+.reveal-scale.active{
+    opacity:1;
+    transform:scale(1);
 }
 
 .mentor-photo img{
@@ -509,65 +756,7 @@ border:1px solid #E0962E;
     gap:12px;
     margin:25px 0 30px;
 }
-<section>
-<div class="wrap">
 
-<div class="masterclass-section">
-
-<span class="masterclass-tag">
-🚀 NEW MASTERCLASS
-</span>
-
-<div class="masterclass-top">
-
-<div class="masterclass-content">
-
-<h2>Kareerz Career Masterclass</h2>
-
-<p>
-A structured career development program designed to help students and professionals build confidence, develop job-ready skills, and achieve career success.
-</p>
-
-</div>
-
-<div class="masterclass-price-box">
-
-<div class="masterclass-bonus">
-Free Handbook Worth ₹699
-</div>
-
-</div>
-
-</div>
-
-<div class="masterclass-features">
-
-<div class="masterclass-feature">✔Career Planning</div>
-<div class="masterclass-feature">✔Resume Building</div>
-<div class="masterclass-feature">✔LinkedIn Mastery</div>
-<div class="masterclass-feature">✔Interview Preparation</div>
-<div class="masterclass-feature">✔AI for Career Growth</div>
-<div class="masterclass-feature">✔Personal Branding</div>
-
-</div>
-<br><br>
-
-<a href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
-   target="_blank"
-   class="btn-primary">
-   Enroll Now
-</a>
-<a href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
-   target="_blank"
-   class="btn-primary"
-   style="margin-top:20px;">
-   Enroll Now
-</a>
-
-</div>
-
-</div>
-</section>
 .mentor .btn-secondary{
     color:#E0962E !important;
     border:2px solid #E0962E;
@@ -605,14 +794,14 @@ Free Handbook Worth ₹699
 </nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
+<section class="hero reveal" id="top">
   <div class="wrap">
     <div class="hero-grid">
       <div>
         <span class="eyebrow">Your key to knowledge</span>
         <h1>Helping students build<br>careers with <em>confidence.</em></h1>
         <div class="hero-tags">
-          <span>Resume building</span><span>Interview prep</span><span>Career planning</span><span>Free resources</span>
+          <p><span id="typing-text"></span></p>
         </div>
         <p class="lede">
 Practical career guidance, mentorship, and skill development designed to help students make confident academic and professional decisions.
@@ -650,13 +839,11 @@ Practical career guidance, mentorship, and skill development designed to help st
 
 <!-- ============ VISION / MISSION ============ -->
 <section id="masterclass">
-  <section>
 <div class="wrap">
 
 <div class="masterclass-section">
 
 <span class="masterclass-tag">
-🚀 NEW MASTERCLASS
 </span>
 
 <div class="masterclass-top">
@@ -673,15 +860,14 @@ A structured career development program designed to help students and profession
 
 <div class="masterclass-price-box">
 
-<div class="masterclass-price">
-<span class="old-price">₹799</span>
-₹149
-</div>
+    <div class="masterclass-price">
+        <span class="old-price">₹799</span>
+        ₹149
+    </div>
 
-<div class="masterclass-bonus">
-
-<b>Free Career Launchpad Handbook Worth ₹699</b>
-</div>
+    <div class="masterclass-bonus">
+        <b>Free Career Launchpad Handbook Worth ₹699</b>
+    </div>
 
 </div>
 
@@ -697,7 +883,7 @@ A structured career development program designed to help students and profession
 <div class="masterclass-feature">✔Personal Branding</div>
 
 </div>
-<br>
+<br><br>
 
 <a href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
    target="_blank"
@@ -707,9 +893,8 @@ A structured career development program designed to help students and profession
 </div>
 
 </div>
-</section>
-  
-<section id="vision">
+</section> 
+<section id="vision" class="reveal">
   <div class="wrap">
     <div class="key-rule" style="margin-bottom:28px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5.2" stroke="#E0962E" stroke-width="2"/><line x1="11.7" y1="11.7" x2="20" y2="20" stroke="#E0962E" stroke-width="2" stroke-linecap="round"/></svg><span>Your Key to Knowledge</span></div>
     <div class="vm-grid">
@@ -728,7 +913,7 @@ A structured career development program designed to help students and profession
 </section>
 
 <!-- ============ MENTOR ============ -->
-<section class="mentor">
+<section class="mentor reveal-left">
   <div class="wrap">
     <span class="eyebrow">Meet your career mentor</span>
     <div class="mentor-grid">
@@ -769,7 +954,7 @@ A structured career development program designed to help students and profession
 </section>
 
 <!-- ============ PROGRAMS ============ -->
-<section id="programs">
+<section id="programs" class="reveal">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Explore our programs</span>
@@ -778,42 +963,42 @@ A structured career development program designed to help students and profession
     </div>
     <div class="prog-grid">
 
-      <div class="prog-card">
+      <div class="prog-card reveal">
         <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9.5l-4 4 1 5.5-5-2.7-5 2.7 1-5.5-4-4 5.5-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
         <h3>Career guidance</h3>
         <p>Discover your strengths, explore career opportunities, and make informed decisions with personalized academic and career guidance.</p>
         <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
 
-      <div class="prog-card">
+      <div class="prog-card reveal">
         <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 9h8M8 13h5M5 5h14v11l-4 4v-4H5V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
         <h3>Interview prep</h3>
         <p>Build confidence through mock interviews, expert tips, and practical strategies to perform effectively in HR and technical interviews.</p>
         <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
 
-      <div class="prog-card">
+      <div class="prog-card reveal">
         <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9m6 10V5m6 14v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <h3>Aptitude training</h3>
         <p>Strengthen your problem-solving abilities with structured training covering quantitative, logical, and verbal reasoning.</p>
         <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
 
-      <div class="prog-card" id="wellness">
+      <div class="prog-card reveal id="wellness">
         <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.4 3 5 6.6 5c2 0 3.4 1.2 4.4 2.6C12 6.2 13.4 5 15.4 5 19 5 20.8 8.4 19.3 11.9 17 16.4 12 21 12 21z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
         <h3>Mental wellness</h3>
         <p>Promoting emotional resilience, self-awareness, and healthy coping strategies to support personal growth and academic success.</p>
         <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
 
-      <div class="prog-card">
+      <div class="prog-card reveal">
         <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4l8 4-8 4-8-4 8-4z M4 12l8 4 8-4M4 16l8 4 8-4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
         <h3>School programs</h3>
         <p>Helping students explore career paths, choose the right academic stream, and prepare for future educational opportunities.</p>
         <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
 
-      <div class="prog-card">
+      <div class="prog-card reveal">
         <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6V3z M15 3v3h3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
         <h3>College programs</h3>
         <p>Comprehensive support in resume building, LinkedIn optimization, interview prep, and career planning for students and freshers.</p>
@@ -825,7 +1010,7 @@ A structured career development program designed to help students and profession
 </section>
 
 <!-- PROFESSIONAL RECOMMENDATIONS -->
-<section id="recommendations">
+<section id="recommendations" class="reveal">
 
   <div class="wrap">
 
@@ -877,7 +1062,7 @@ A structured career development program designed to help students and profession
   </div>
 
 </section>
-<section id="handbook">
+<section id="handbook" class="reveal-scale">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Featured Resource</span>
@@ -915,7 +1100,7 @@ Trusted by 200+ students and recommended by industry professionals.
 </section>
 
 <!-- ============ WHY US ============ -->
-<section id="why">
+<section id="why" class="reveal">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Why choose kareerz</span>
@@ -948,7 +1133,7 @@ Trusted by 200+ students and recommended by industry professionals.
 </section>
 
 <!-- ============ CTA BAND ============ -->
-<section class="cta-band" id="contact">
+<section class="cta-band reveal" id="contact">
   <div class="wrap">
     <h2>Ready to build your career with confidence?</h2>
     <p>Book a free consultation — no pressure, just a clear next step.</p>
@@ -1054,28 +1239,147 @@ Trusted by 200+ students and recommended by industry professionals.
 
 </div>
 <script>
+// Counter Animation
 const counters = document.querySelectorAll('.num');
 
-counters.forEach(counter => {
-    const targetText = counter.innerText;
-    const target = parseInt(targetText);
+const counterObserver = new IntersectionObserver((entries) => {
 
-    let count = 0;
+entries.forEach(entry => {
 
-    const updateCounter = () => {
-        const increment = Math.ceil(target / 50);
+if(entry.isIntersecting){
 
-        if (count < target) {
-            count += increment;
-            counter.innerText = count + (targetText.includes('%') ? '%' : '+');
-            setTimeout(updateCounter, 30);
-        } else {
-            counter.innerText = targetText;
-        }
-    };
+const counter = entry.target;
 
-    updateCounter();
+const targetText = counter.innerText;
+
+const target = parseInt(targetText);
+
+let count = 0;
+
+const updateCounter = () => {
+
+const increment = Math.ceil(target / 50);
+
+if(count < target){
+
+count += increment;
+
+counter.innerText =
+count +
+(targetText.includes('%') ? '%' : '+');
+
+setTimeout(updateCounter,30);
+
+}else{
+
+counter.innerText = targetText;
+
+}
+
+};
+
+updateCounter();
+
+counterObserver.unobserve(counter);
+
+}
+
 });
+
+},{
+threshold:0.5
+});
+
+counters.forEach(counter=>{
+counterObserver.observe(counter);
+});
+
+
+// Scroll Reveal Animation
+
+const reveals = document.querySelectorAll(
+'.reveal,.reveal-left,.reveal-right,.reveal-scale'
+);
+
+const revealObserver = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('active');
+
+}
+
+});
+
+},{
+threshold:0.15
+});
+
+reveals.forEach(item=>{
+    revealObserver.observe(item);
+});
+
+// Hero animation immediately on page load
+window.addEventListener("load", () => {
+    document.querySelector(".hero")?.classList.add("active");
+});
+
+console.log("Animation script loaded");
+/* =========================
+   Typing Animation
+========================= */
+
+const words = [
+    "Resume Building",
+    "Interview Preparation",
+    "Career Planning",
+    "LinkedIn Optimization",
+    "AI Career Guidance",
+    "Free Resources"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.getElementById("typing-text");
+
+function typeEffect(){
+
+    if(!typing) return;
+
+    const currentWord = words[wordIndex];
+
+    if(!deleting){
+
+        typing.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if(charIndex === currentWord.length){
+            deleting = true;
+            setTimeout(typeEffect, 1500);
+            return;
+        }
+
+    }else{
+
+        typing.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if(charIndex === 0){
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 40 : 80);
+
+}
+
+typeEffect();
 </script>
 </body>
 </html>
