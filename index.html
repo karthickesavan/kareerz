@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kareerz | Career Guidance, Resume Building & Interview Preparation</title>
+<link rel="icon" type="image/png" href="kareerz logo (1).png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0;}</style>
+</head>
+<body>
+<div id="kareerz-root">
+
+<style>
+  #kareerz-root {
+    --ink: #16241f;
+    --indigo: #173A3E;
+    --indigo-deep: #0E2629;
+    --gold: #E0962E;
+    --gold-soft: #F2C572;
+    --sand: #F5EFE3;
+    --paper: #FFFCF6;
+    --sage: #7C9A8E;
+    --line: rgba(22,36,31,0.12);
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #kareerz-root * { box-sizing: border-box; margin: 0; padding: 0; }
+  #kareerz-root a { color: inherit; text-decoration: none; }
+  #kareerz-root img { max-width: 100%; display: block; }
+  #kareerz-root button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  #kareerz-root .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Key motif (signature element) ---------- */
+  #kareerz-root .key-rule {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+  }
+  #kareerz-root .key-rule svg { flex-shrink: 0; }
+  #kareerz-root .key-rule span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--indigo);
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+  #kareerz-root .key-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 11px);
+  }
+
+  /* ---------- Nav ---------- */
+  #kareerz-root nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245,239,227,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  #kareerz-root .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  #kareerz-root .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  #kareerz-root .logo svg { width: 22px; height: 22px; }
+  #kareerz-root .navlinks {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  #kareerz-root .navlinks a { opacity: 0.75; transition: opacity 0.15s; }
+  #kareerz-root .navlinks a:hover { opacity: 1; }
+  #kareerz-root .nav-cta {
+    background: var(--indigo);
+    color: var(--paper);
+    padding: 9px 18px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  #kareerz-root .nav-cta:hover { background: var(--indigo-deep); }
+  #kareerz-root .navlinks-mobile, #kareerz-root .burger { display: none; }
+
+  /* ---------- Section shell ---------- */
+  #kareerz-root section {
+    padding: 76px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  #kareerz-root .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+  #kareerz-root h1, #kareerz-root h2, #kareerz-root h3 {
+    font-family: var(--font-display);
+    color: var(--indigo-deep);
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Hero ---------- */
+  #kareerz-root .hero {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  #kareerz-root .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+  }
+  #kareerz-root .hero h1 {
+    font-size: clamp(38px, 5vw, 56px);
+    line-height: 1.08;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  #kareerz-root .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  #kareerz-root .hero-tags {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--indigo);
+    opacity: 0.8;
+    margin-bottom: 28px;
+  }
+  #kareerz-root .hero-tags span:not(:last-child)::after { content: " / "; opacity: 0.4; }
+  #kareerz-root .hero p.lede {
+    font-size: 17px;
+    max-width: 480px;
+    opacity: 0.85;
+    margin-bottom: 32px;
+  }
+  #kareerz-root .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  #kareerz-root .btn-primary, #kareerz-root .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 14.5px;
+    transition: transform 0.15s, background 0.15s;
+  }
+  #kareerz-root .btn-primary { background: var(--gold); color: var(--indigo-deep); }
+  #kareerz-root .btn-primary:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  #kareerz-root .btn-secondary { background: transparent; color: var(--indigo); border: 1.5px solid var(--indigo); }
+  #kareerz-root .btn-secondary:hover { background: var(--indigo); color: var(--paper); }
+
+  /* hero key illustration */
+  #kareerz-root .hero-art { position: relative; }
+  #kareerz-root .hero-art svg { width: 100%; height: auto; }
+
+  /* stat strip */
+  #kareerz-root .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  #kareerz-root .stat {
+    padding: 22px 20px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  #kareerz-root .stat .num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--indigo-deep);
+    font-weight: 600;
+  }
+  #kareerz-root .stat .lbl {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-top: 4px;
+  }
+
+  /* ---------- Section heads ---------- */
+  #kareerz-root .sec-head { margin-bottom: 40px; max-width: 640px; }
+  #kareerz-root .sec-head h2 { font-size: clamp(26px, 3.4vw, 34px); font-weight: 600; margin: 10px 0 12px; }
+  #kareerz-root .sec-head p { opacity: 0.78; font-size: 15.5px; }
+
+  /* ---------- Vision/Mission ---------- */
+  #kareerz-root .vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  #kareerz-root .vm-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 30px 28px;
+    position: relative;
+  }
+  #kareerz-root .vm-card .tooth {
+    width: 30px; height: 4px; background: var(--gold); border-radius: 2px; margin-bottom: 18px;
+  }
+  #kareerz-root .vm-card h3 { font-size: 20px; margin-bottom: 10px; font-weight: 600; }
+  #kareerz-root .vm-card p { font-size: 14.5px; opacity: 0.8; }
+
+  /* ---------- Mentor ---------- */
+  #kareerz-root .mentor {
+    background: var(--indigo-deep);
+    color: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  #kareerz-root .mentor .eyebrow { color: var(--gold-soft); }
+  #kareerz-root .mentor-grid {
+    display: grid;
+    grid-template-columns: 0.55fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  #kareerz-root .mentor-badge {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 240px;
+    border-radius: 8px;
+    background: linear-gradient(155deg, var(--gold) 0%, var(--gold-soft) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  #kareerz-root .mentor-badge svg { width: 92px; height: 92px; }
+  #kareerz-root .mentor-name { font-size: 28px; font-weight: 600; color: var(--paper); margin-bottom: 4px; }
+  #kareerz-root .mentor-role { font-size: 14.5px; color: var(--gold-soft); font-weight: 700; margin-bottom: 4px; }
+  #kareerz-root .mentor-cred { font-size: 14px; opacity: 0.7; margin-bottom: 22px; max-width: 460px; }
+  #kareerz-root .mentor-list { list-style: none; display: grid; gap: 10px; margin-bottom: 26px; }
+  #kareerz-root .mentor-list li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; }
+  #kareerz-root .mentor-list svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--gold-soft); }
+
+  /* ---------- Programs ---------- */
+  #kareerz-root .prog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  #kareerz-root .prog-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 26px 22px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  #kareerz-root .prog-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  #kareerz-root .prog-icon {
+    width: 40px; height: 40px;
+    border-radius: 6px;
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  #kareerz-root .prog-icon svg { width: 20px; height: 20px; color: var(--indigo); }
+  #kareerz-root .prog-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  #kareerz-root .prog-card p { font-size: 13.8px; opacity: 0.78; margin-bottom: 14px; }
+  #kareerz-root .prog-link { font-size: 13px; font-weight: 700; color: var(--gold); display: inline-flex; align-items: center; gap: 4px; }
+  #kareerz-root .prog-link svg { width: 13px; height: 13px; transition: transform 0.15s; }
+  #kareerz-root .prog-card:hover .prog-link svg { transform: translateX(3px); }
+
+  /* ---------- Why us ---------- */
+  #kareerz-root .why-list { display: grid; gap: 0; }
+  #kareerz-root .why-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  #kareerz-root .why-row:last-child { border-bottom: 1px solid var(--line); }
+  #kareerz-root .why-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--gold);
+    padding-top: 3px;
+  }
+  #kareerz-root .why-row h3 { font-size: 16.5px; font-weight: 600; margin-bottom: 4px; }
+  #kareerz-root .why-row p { font-size: 14px; opacity: 0.75; max-width: 560px; }
+
+  /* ---------- CTA band ---------- */
+  #kareerz-root .cta-band {
+    background: var(--indigo);
+    color: var(--paper);
+    text-align: center;
+    padding: 70px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  #kareerz-root .cta-band h2 { color: var(--paper); font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 14px; font-weight: 600; }
+  #kareerz-root .cta-band p { opacity: 0.75; margin-bottom: 30px; }
+  #kareerz-root .cta-band .cta-row { justify-content: center; }
+  #kareerz-root .cta-band .btn-secondary { border-color: rgba(255,252,246,0.4); color: var(--paper); }
+  #kareerz-root .cta-band .btn-secondary:hover { background: var(--paper); color: var(--indigo-deep); }
+
+  /* ---------- Footer ---------- */
+  #kareerz-root footer { padding: 48px 0 32px; }
+  #kareerz-root .foot-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+  #kareerz-root .foot-logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+  #kareerz-root .foot-logo svg { width: 18px; height: 18px; color: var(--gold); }
+  #kareerz-root footer p.tag { font-size: 13.5px; opacity: 0.65; max-width: 280px; }
+  #kareerz-root .foot-col h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-bottom: 14px; }
+  #kareerz-root .foot-col ul { list-style: none; display: grid; gap: 9px; }
+  #kareerz-root .foot-col a { font-size: 14px; opacity: 0.8; }
+  #kareerz-root .foot-col a:hover { color: var(--gold); opacity: 1; }
+  #kareerz-root .foot-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--line); padding-top: 22px;
+    font-size: 12.5px; opacity: 0.55;
+    flex-wrap: wrap; gap: 10px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    #kareerz-root .navlinks { display: none; }
+    #kareerz-root .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    #kareerz-root .hero-art { max-width: 280px; margin: 0 auto; }
+    #kareerz-root .stats { grid-template-columns: repeat(2, 1fr); }
+    #kareerz-root .vm-grid { grid-template-columns: 1fr; }
+    #kareerz-root .mentor-grid { grid-template-columns: 1fr; text-align: left; }
+    #kareerz-root .mentor-badge { margin-bottom: 8px; }
+    #kareerz-root .prog-grid { grid-template-columns: 1fr 1fr; }
+    #kareerz-root .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+    #kareerz-root section { padding: 56px 0; }
+    #kareerz-root .wrap { padding: 0 20px; }
+    #kareerz-root .nav-inner { padding: 14px 20px; }
+  }
+  @media (max-width: 560px) {
+    #kareerz-root .prog-grid { grid-template-columns: 1fr; }
+    #kareerz-root .stats { grid-template-columns: repeat(2,1fr); }
+    #kareerz-root .cta-row { flex-direction: column; }
+    #kareerz-root .btn-primary, #kareerz-root .btn-secondary { justify-content: center; width: 100%; }
+    #kareerz-root .why-row { grid-template-columns: 36px 1fr; }
+    #kareerz-root .foot-bottom { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #kareerz-root * { transition: none !important; }
+  }.mentor-photo{
+    max-width:240px;
+}
+
+.mentor-photo img{
+    width:100%;
+    border-radius:8px;
+    display:block;
+}
+.brand-tagline{
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:2px;
+}
+
+.foot-logo img{
+    height:55px;
+    width:auto;
+}
+
+.logo img{
+    height:60px;
+    width:auto;
+    display:block;
+}
+.rec-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.rec-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rec-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.rec-text{
+    font-style:italic;
+    line-height:1.8;
+    color:#4A4A4A;
+}
+
+.rec-card h4{
+    margin-bottom:4px;
+    color:var(--indigo-deep);
+}
+
+.rec-card span{
+    font-size:14px;
+    opacity:0.7;
+}
+.rec-card h3{
+    color:#173A3E;
+    font-size:22px;
+    margin-bottom:6px;
+}
+.rec-card p:first-of-type{
+    min-height:50px;
+}
+.stars{
+    color:#E0962E;
+    font-size:22px;
+    letter-spacing:3px;
+    margin:10px 0 15px;
+    font-weight:bold;
+}
+ .handbook-card{
+    background:#ffffff;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    padding:32px;
+    max-width:700px;
+}
+
+#handbook ul li{
+    margin-bottom:12px;
+}
+.old-price{
+    display:block;
+    font-size:22px;
+    color:#777;
+    text-decoration:line-through;
+    font-weight:500;
+    margin-bottom:5px;
+}
+.masterclass-price{
+    font-size:42px;
+    font-weight:700;
+    color:#E0962E;
+    line-height:1.1;
+    margin:15px 0;
+}
+.masterclass-feature{
+    display:inline-block;
+    background:#FFF3D6;
+color:#173A3E;
+border:1px solid #E0962E;
+    padding:13px 23px;
+    border-radius:25px;
+    margin:6px;
+    font-size:16px;
+    font-weight:600;
+}
+.masterclass-features{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:25px 0 30px;
+}
+<section>
+<div class="wrap">
+
+<div class="masterclass-section">
+
+<span class="masterclass-tag">
+🚀 NEW MASTERCLASS
+</span>
+
+<div class="masterclass-top">
+
+<div class="masterclass-content">
+
+<h2>Kareerz Career Masterclass</h2>
+
+<p>
+A structured career development program designed to help students and professionals build confidence, develop job-ready skills, and achieve career success.
+</p>
+
+</div>
+
+<div class="masterclass-price-box">
+
+<div class="masterclass-bonus">
+Free Handbook Worth ₹699
+</div>
+
+</div>
+
+</div>
+
+<div class="masterclass-features">
+
+<div class="masterclass-feature">✔Career Planning</div>
+<div class="masterclass-feature">✔Resume Building</div>
+<div class="masterclass-feature">✔LinkedIn Mastery</div>
+<div class="masterclass-feature">✔Interview Preparation</div>
+<div class="masterclass-feature">✔AI for Career Growth</div>
+<div class="masterclass-feature">✔Personal Branding</div>
+
+</div>
+<br><br>
+
+<a href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
+   target="_blank"
+   class="btn-primary">
+   Enroll Now
+</a>
+<a href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
+   target="_blank"
+   class="btn-primary"
+   style="margin-top:20px;">
+   Enroll Now
+</a>
+
+</div>
+
+</div>
+</section>
+</style>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+    <img src="kareerz logo.png" alt="Kareerz Logo">
+</div>
+    <div class="navlinks">
+      <a href="#vision">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#handbook">Resources</a>
+      <a href="#recommendations">Recommendations</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://forms.gle/9rhNYy1Gf63Eqs2G8" target="_blank" rel="noopener">Book free session</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Your key to knowledge</span>
+        <h1>Helping students build<br>careers with <em>confidence.</em></h1>
+        <div class="hero-tags">
+          <span>Resume building</span><span>Interview prep</span><span>Career planning</span><span>Free resources</span>
+        </div>
+        <p class="lede">
+Practical career guidance, mentorship, and skill development designed to help students make confident academic and professional decisions.
+</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="https://forms.gle/9rhNYy1Gf63Eqs2G8" target="_blank" rel="noopener">Book free consultation</a>
+          <a class="btn-secondary" href="#programs">Explore programs</a>
+<p style="margin-top:20px;font-size:14px;color:#666;">
+✓ 200+ Students Mentored • ✓ Industry Recommendations • ✓ Free Career Handbook
+</p>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="160" cy="160" r="150" fill="#FFFCF6" stroke="#16241f" stroke-opacity="0.08"/>
+          <g transform="translate(60,120) rotate(-18)">
+            <circle cx="40" cy="40" r="38" fill="none" stroke="#E0962E" stroke-width="9"/>
+            <rect x="74" y="33" width="120" height="14" rx="3" fill="#E0962E"/>
+            <rect x="160" y="47" width="12" height="22" fill="#E0962E"/>
+            <rect x="180" y="47" width="12" height="30" fill="#E0962E"/>
+            <circle cx="40" cy="40" r="14" fill="#FFFCF6"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">200+</div><div class="lbl">Students mentored</div></div>
+      <div class="stat"><div class="num">50+</div><div class="lbl">Resources shared</div></div>
+      <div class="stat"><div class="num">20+</div><div class="lbl">Programs & Sessions</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Practical learning</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION / MISSION ============ -->
+<section id="masterclass">
+  <section>
+<div class="wrap">
+
+<div class="masterclass-section">
+
+<span class="masterclass-tag">
+🚀 NEW MASTERCLASS
+</span>
+
+<div class="masterclass-top">
+
+<div class="masterclass-content">
+
+<h2>Kareerz Career Masterclass</h2>
+
+<p>
+A structured career development program designed to help students and professionals build confidence, develop job-ready skills, and achieve career success.
+</p>
+
+</div>
+
+<div class="masterclass-price-box">
+
+<div class="masterclass-price">
+<span class="old-price">₹799</span>
+₹149
+</div>
+
+<div class="masterclass-bonus">
+
+<b>Free Career Launchpad Handbook Worth ₹699</b>
+</div>
+
+</div>
+
+</div>
+
+<div class="masterclass-features">
+
+<div class="masterclass-feature">✔Career Planning</div>
+<div class="masterclass-feature">✔Resume Building</div>
+<div class="masterclass-feature">✔LinkedIn Mastery</div>
+<div class="masterclass-feature">✔Interview Preparation</div>
+<div class="masterclass-feature">✔AI for Career Growth</div>
+<div class="masterclass-feature">✔Personal Branding</div>
+
+</div>
+<br>
+
+<a href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
+   target="_blank"
+   class="btn-primary">
+   Enroll Now
+</a>
+</div>
+
+</div>
+</section>
+  
+<section id="vision">
+  <div class="wrap">
+    <div class="key-rule" style="margin-bottom:28px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5.2" stroke="#E0962E" stroke-width="2"/><line x1="11.7" y1="11.7" x2="20" y2="20" stroke="#E0962E" stroke-width="2" stroke-linecap="round"/></svg><span>Your Key to Knowledge</span></div>
+    <div class="vm-grid">
+      <div class="vm-card">
+        <div class="tooth"></div>
+        <h3>Our vision — a fearless generation</h3>
+        <p>To cultivate a fearless generation of students who embrace challenges and boldly pursue their passions in an ever-evolving world.</p>
+      </div>
+      <div class="vm-card">
+        <div class="tooth"></div>
+        <h3>Our mission — holistic guidance</h3>
+        <p>To empower students with practical career guidance, skill development, and mentorship that bridges the gap between education and employment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENTOR ============ -->
+<section class="mentor">
+  <div class="wrap">
+    <span class="eyebrow">Meet your career mentor</span>
+    <div class="mentor-grid">
+      <div class="mentor-photo">
+  <img src="profile.png" alt="Karthickesavan Dhanakotti">
+</div>
+ <div>
+        <div class="mentor-name">Karthickesavan Dhanakotti</div>
+        <div class="mentor-role">Founder, Kareerz</div>
+        <p class="mentor-cred">MBA HR Candidate · Talent Acquisition &amp; Recruitment Professional</p>
+<p class="mentor-cred">Worked with EY, Cognizant, Hexaware, Casagrand and DAC Developers across Talent Acquisition, Recruitment, Quality Assurance and Business Operations.
+</p>
+<ul class="mentor-list">
+  <li>✔Career guidance</li>
+  <li>✔Resume building</li>
+  <li>✔Interview preparation</li>
+  <li>✔Placement readiness</li>
+</ul>
+<a class="btn-primary" href="https://forms.gle/9rhNYy1Gf63Eqs2G8" target="_blank" rel="noopener">Book a free consultation</a>
+<a class="btn-secondary"
+   <a href="https://drive.google.com/file/d/19Jpa_TezEYOgn0FK2tvFtCDWRHbweAT_/view?usp=sharing"
+   target="_blank"
+   rel="noopener"
+   style="
+   display:inline-flex;
+   align-items:center;
+   justify-content:center;
+   gap:8px;
+   padding:13px 24px;
+   margin-left:10px;
+   background:transparent;
+   color:#E0962E;
+   border:2px solid #E0962E;
+   border-radius:3px;
+   font-weight:700;
+   font-size:14.5px;
+   text-decoration:none;">
+   ▶ Watch My Story
+</a>
+
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Explore our programs</span>
+      <h2>Six ways we turn uncertainty into a plan.</h2>
+      <p>Each program is built around one real student problem — not a generic curriculum.</p>
+    </div>
+    <div class="prog-grid">
+
+      <div class="prog-card">
+        <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9.5l-4 4 1 5.5-5-2.7-5 2.7 1-5.5-4-4 5.5-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Career guidance</h3>
+        <p>Discover your strengths, explore career opportunities, and make informed decisions with personalized academic and career guidance.</p>
+        <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 9h8M8 13h5M5 5h14v11l-4 4v-4H5V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Interview prep</h3>
+        <p>Build confidence through mock interviews, expert tips, and practical strategies to perform effectively in HR and technical interviews.</p>
+        <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9m6 10V5m6 14v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Aptitude training</h3>
+        <p>Strengthen your problem-solving abilities with structured training covering quantitative, logical, and verbal reasoning.</p>
+        <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="prog-card" id="wellness">
+        <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.4 3 5 6.6 5c2 0 3.4 1.2 4.4 2.6C12 6.2 13.4 5 15.4 5 19 5 20.8 8.4 19.3 11.9 17 16.4 12 21 12 21z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Mental wellness</h3>
+        <p>Promoting emotional resilience, self-awareness, and healthy coping strategies to support personal growth and academic success.</p>
+        <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4l8 4-8 4-8-4 8-4z M4 12l8 4 8-4M4 16l8 4 8-4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>School programs</h3>
+        <p>Helping students explore career paths, choose the right academic stream, and prepare for future educational opportunities.</p>
+        <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6V3z M15 3v3h3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>College programs</h3>
+        <p>Comprehensive support in resume building, LinkedIn optimization, interview prep, and career planning for students and freshers.</p>
+        <a class="prog-link" href="#contact">Learn more <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL RECOMMENDATIONS -->
+<section id="recommendations">
+
+  <div class="wrap">
+
+    <div class="sec-head">
+      <span class="eyebrow">Professional Recommendations</span>
+      <h2>What Industry Professionals Say</h2>
+      <p>Feedback from mentors, recruiters and industry professionals.</p>
+    </div>
+
+    <div class="rec-grid">
+
+      <div class="vm-card">
+  <h3>Nithya Padmanabhan</h3>
+  <p>Founder & IELTS Trainer, The Learning Industry</p>
+
+<div class="stars">★★★★★</div>
+  <br>
+  <p class="rec-text">I felt great talking to a young founder. The training session was crisp, engaging, and on point. Wishing Karthick continued success in empowering students through career guidance and learning initiatives. "</p>
+</div>
+
+      <div class="vm-card">
+  <h3>Sushil Raj</h3>
+  <p>HR (L&D) at Accenture | Ex-Cognizant</p>
+
+<div class="stars">★★★★★</div>
+  <br>
+  <p class="rec-text"> Happy to see you shaping your career journey with determination and purpose. Keep achieving greater heights and continue making a positive impact through your work and initiatives. "</p>
+</div>
+
+<div class="vm-card">
+  <h3>John Immanuel</h3>
+  <p>VP (Sales & Marketing) at MP</p>
+ 
+<div class="stars">★★★★★</div>
+ <br>
+  <p class="rec-text"> Karthick is an exceptional communicator with the ability to connect, engage, and create meaningful impact. His communication skills and professional approach make him a valuable contributor to any organization or initiative. "</p>
+</div>
+
+<div class="vm-card">
+  <h3>Mrs. Jayanthi</h3>
+  <p>Assistant Vice President (Sales), DAC</p>
+  
+<div class="stars">★★★★★</div>
+<br>
+  <p class="rec-text"> Karthick's work has been excellent and vigorous. His dedication, professionalism, and outstanding performance were specifically recognized and appreciated. A committed individual who consistently strives for excellence." </p></div>
+
+    </div>
+
+  </div>
+
+</section>
+<section id="handbook">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Featured Resource</span>
+      <h2>Free Careers Success Handbook</h2>
+      <p>50+ pages of career guidance, interview preparation, resume building, LinkedIn mastery and professional growth.</p>
+<p style="margin-bottom:20px;">
+<strong>51 Pages • Free PDF • Resume Templates • Interview Preparation • LinkedIn Guide</strong>
+</p>
+<div>
+ <h3 style="margin-bottom:20px;">What's Inside?</h3>
+
+  <ul>
+<li>✓ Career Planning</li>
+<li>✓ Communication Skills</li>
+<li>✓ LinkedIn Mastery</li>
+<li>✓ Resume Building</li>
+<li>✓ Cover Letter Writing</li>
+<li>✓ Interview Preparation</li>
+<li>✓ Personal Branding</li>
+<li>✓ Career Growth Strategies</li>
+  </ul>
+
+
+  <a href="https://drive.google.com/file/d/1v0k4R7AdXMn2PL8vX9R6OHDtEwG3dCzX/view?usp=sharing"
+   target="_blank"
+   class="btn-primary">
+   Download Free Handbook
+</a>
+<p style="margin-top:15px;font-size:14px;color:#666;">
+Trusted by 200+ students and recommended by industry professionals.
+
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why choose kareerz</span>
+      <h2>Personalized, practical, and human.</h2>
+      <p>We pair industry expertise with a real focus on mental health, so guidance feels actionable — not generic.</p>
+    </div>
+    <div class="why-list">
+      <div class="why-row">
+        <div class="why-num">01</div>
+        <div><h3>Empowering careers, empowering you</h3><p>Personalized career guidance built on real industry expertise, not one-size-fits-all advice.</p></div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">02</div>
+        <div><h3>Your path to success starts here</h3><p>Tailored programs and practical strategies to navigate today's job market with confidence.</p></div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">03</div>
+        <div><h3>Expert guidance, personalized approach</h3><p>Insightful career advice backed by a supportive community for your continued advancement.</p></div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">04</div>
+        <div><h3>Transforming careers, one step at a time</h3><p>Access to tailored programs that build real skills and confidence toward your career goals.</p></div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">05</div>
+        <div><h3>Commitment to excellence in career development</h3><p>Personalized strategies and continuous support that empower long-term career growth.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Ready to build your career with confidence?</h2>
+    <p>Book a free consultation — no pressure, just a clear next step.</p>
+    <div class="cta-row">
+  <a class="btn-primary"
+     href="https://forms.gle/9rhNYy1Gf63Eqs2G8"
+     target="_blank"
+     rel="noopener">
+     Book Free Consultation
+  </a>
+
+  <a class="btn-secondary"
+     href="https://wa.me/918825942551"
+     target="_blank"
+     rel="noopener">
+     Chat on WhatsApp
+  </a>
+
+  <a class="btn-secondary"
+     href="https://chat.whatsapp.com/IgdeiAcGu7z6yZS7f2yuZl"
+     target="_blank"
+     rel="noopener">
+     Join WhatsApp Community
+  </a>
+</div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+  <img src="kareerz logo.png" alt="Kareerz Logo">
+</div>
+        <p class="tag">Building careers with confidence — helping students develop skills, confidence, and career readiness through practical guidance and mentorship.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#why">Career guidance</a></li>
+          <li><a href="#programs">Interview preparation</a></li>
+          <li><a href="#programs">Resume building</a></li>
+          <li><a href="#wellness">Mental wellness</a></li>
+          <li><a href="#programs">College programs</a></li>
+          <li><a href="#handbook">Free Handbook</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:infokareerz@gmail.com">infokareerz@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/company/kareerz/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://wa.me/918825942551" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.kareerz.co.in" target="_blank" rel="noopener">www.kareerz.co.in</a></li>
+          <li><a href="https://klearningz.kareerz.co.in" target="_blank" rel="noopener">www.klearningz.kareerz.co.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Kareerz. All rights reserved.</span>
+      <span>"Your key to knowledge"</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+const counters = document.querySelectorAll('.num');
+
+counters.forEach(counter => {
+    const targetText = counter.innerText;
+    const target = parseInt(targetText);
+
+    let count = 0;
+
+    const updateCounter = () => {
+        const increment = Math.ceil(target / 50);
+
+        if (count < target) {
+            count += increment;
+            counter.innerText = count + (targetText.includes('%') ? '%' : '+');
+            setTimeout(updateCounter, 30);
+        } else {
+            counter.innerText = targetText;
+        }
+    };
+
+    updateCounter();
+});
+</script>
+</body>
+</html>
